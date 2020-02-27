@@ -5,7 +5,7 @@ export default class Header extends Component{
         return(
             <header>
                 <div>
-                    <h1>口罩地圖</h1>
+                    <h1>Daniel der 口罩地圖 <span>😷</span></h1>
                 </div>
             </header>
         );

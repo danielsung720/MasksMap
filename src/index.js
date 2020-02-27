@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Map from "./components/Map";
+import ApiMasks from "./api/Masks"
+import MasksMap from "./components/MasksMap";
 import Header from "./components/Header";
 import "./index.css";
 
@@ -10,22 +11,26 @@ class Index extends React.Component{
         super(props);
         this.state = {
             masksData: [],
+            masksDataSlice: [],
         }
     }
 
     async componentDidMount() {
-        // const masksData = await Masks.reloadMasksDatas();
-
-        // this.setState({
-        //     masksData: masksData.features
-        // });
+        const masksData = await ApiMasks.reloadMasksDatas();
+        this.setState({
+            masksData: masksData.features,
+            masksDataSlice: (masksData.features).slice(0,100)
+        });
     }
 
     render() {
+        console.log(this.state.masksDataSlice)
         return(
             <div>
                 <Header/>
-                <Map/>
+                <MasksMap
+                    masksData={this.state.masksDataSlice}
+                />
             </div>
         );
     }
