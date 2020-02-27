@@ -9,7 +9,7 @@ const flatMapStyle = require("./flatMapStyle.json");
 
 const MyMapComponent = compose(
   withProps({
-    googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyD2ICkpt_Ju0z8rlO8I0xbA8b1p8Pu9JFI",
+    googleMapURL: "https://maps.googleapis.com/maps/api/js?key=",
     loadingElement: <div style={{ height: `100%` }} />,
     containerElement: <div style={{ height: `600px` }} />,
     mapElement: <div style={{ height: `100%` }} />,
