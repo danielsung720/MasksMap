@@ -12,12 +12,15 @@
     "babel-preset-es2015": "^6.24.1",
     "es6-promise": "^4.2.8",
     "google-map-react": "^1.1.6",
+    "google-maps-react": "^2.0.2",
     "isomorphic-fetch": "^2.2.1",
+    "lodash": "^4.17.15",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-geolocated": "^3.0.1",
     "react-google-maps": "^9.4.5",
-    "react-scripts": "3.4.0"
+    "react-scripts": "3.4.0",
+    "use-position": "0.0.6"
   },
   "scripts": {
     "start": "react-scripts start",
