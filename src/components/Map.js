@@ -2,7 +2,7 @@ import React from "react";
 import { compose, withProps, lifecycle } from "recompose";
 import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from "react-google-maps";
 
-const MapWithASearchBox = compose(
+const Map = compose(
     withProps({
         googleMapURL: `https://maps.googleapis.com/maps/api/js?key=
         ${process.env.REACT_APP_GOOGLEKEY}&v=3.exp&libraries=geometry,drawing,places`,
@@ -32,7 +32,7 @@ const MapWithASearchBox = compose(
 
         <Marker
             position={props.center}
-            // icon={{url: '/nowPosition.svg'}} 您的位置
+            icon={{url: '/position.png'}}
         />
 
         {props.masksData.map(data => (
@@ -55,14 +55,23 @@ const MapWithASearchBox = compose(
                 onCloseClick={() => {props.selectedMarker(null)}}
             >
                 <div>
-                    <div>藥局名稱: {props.info.properties.name}</div>
-                    <div>電話: {props.info.properties.phone}</div>
-                    <div>地址: {props.info.properties.address}</div>
-                    <div>成人口罩數量: {props.info.properties.mask_adult}</div>
-                    <div>孩童口罩數量: {props.info.properties.mask_child}</div>
+                    <div><h1>藥局名稱: {props.info.properties.name}</h1></div>
+                    <div style = {{ fontWeight: '900' }}>電話: {props.info.properties.phone}</div>
+                    <div style = {{ fontWeight: '900' }}>地址: {props.info.properties.address}</div>
+                    <div >
+                        <a href = {`https://www.google.com.tw/maps/place/${props.info.properties.address}`}
+                            style = {{ textDecoration: 'none', fontWeight: '900' }}
+                        >
+                            在google地圖上開啟
+                        </a>
+                    </div>
+                    <div style = {{ display: 'flex', justifyContent: 'space-around', marginTop: '5px' }}>
+                        <div style = {{ margin: '5px', padding: '15px', fontWeight: '900', background: '#77FFEE', fontSize: '14px', borderRadius: '10px' }} >成人口罩數量: {props.info.properties.mask_adult}</div>
+                        <div style = {{ margin: '5px', padding: '15px', fontWeight: '900', background: '#77FFEE', fontSize: '14px', borderRadius: '10px' }} >孩童口罩數量: {props.info.properties.mask_child}</div>
+                    </div>
                 </div>
             </InfoWindow>
         )}
     </GoogleMap>
 )
-export default MapWithASearchBox
+export default Map

@@ -10,7 +10,6 @@ class Index extends React.Component{
         super(props);
         this.state = {
             masksData: [],
-            masksDataSlice: [],
         }
     }
 
@@ -19,7 +18,6 @@ class Index extends React.Component{
 
         this.setState({
             masksData: masksData.features,
-            masksDataSlice: (masksData.features).slice(0,100),
         });
     }
 

@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import MapWithASearchBox from './components/MapWithASearchBox';
+import Map from './components/Map';
 
 export default class App extends Component {
-
     constructor(props) {
         super(props)
         this.state = {
@@ -16,10 +15,9 @@ export default class App extends Component {
         });
     }
 
-
     render() {
         return (
-            <MapWithASearchBox
+            <Map
                 masksData={this.props.masksData}
                 selectedMarker={(data) => this.selectedMarker(data)}
                 info={this.state.info}
